@@ -1,0 +1,26 @@
+{
+  "name": "grunt-mustache-generate",
+  "version": "1.0.0",
+  "description": "Grunt task to generate html pages and optionally partials for reuse client side",
+  "main": "grunt-mustache-generate.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/boycott/grunt-mustache-generate.git"
+  },
+  "keywords": [
+    "gruntplugin",
+    "mustache"
+  ],
+  "author": "boycott",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/boycott/grunt-mustache-generate/issues"
+  },
+  "homepage": "https://github.com/boycott/grunt-mustache-generate#readme",
+  "dependencies": {
+    "mustache": "^2.2.0"
+  }
+}
