@@ -67,12 +67,12 @@ Set the page output file extension.
 Type: `Integer`
 Default: `1`
 
-## Example Grunt settings
-
 Set the logging levels:
   0 = no logging.
   1 = log pages.
   2 = (and) log partials.
+
+## Example Grunt settings
 
 ```js
 mustacheTemplates: {
