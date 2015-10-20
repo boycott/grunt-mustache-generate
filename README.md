@@ -75,7 +75,7 @@ Set the logging levels:
 ## Example Grunt settings
 
 ```js
-mustacheTemplates: {
+grunt-mustache-generate: {
   options: {
     globalData: 'site.json',
     partials: {

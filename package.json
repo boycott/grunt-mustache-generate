@@ -1,6 +1,6 @@
 {
   "name": "grunt-mustache-generate",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Grunt task to generate html pages and optionally partials for reuse client side",
   "main": "grunt-mustache-generate.js",
   "scripts": {
