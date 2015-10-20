@@ -2,7 +2,7 @@
 /**
  * Grunt task for building mustache templates into specified output formats.
  *
- * @file mustacheTemplates
+ * @file grunt-mustache-generate 
  * @requires mustache:>2.1.0
 */
 var path   = require('path'),
@@ -149,7 +149,7 @@ module.exports = function (grunt) {
       grunt.file.write(this.options.dest + '.' + fileType, output);
     }
   };
-  grunt.registerMultiTask('mustacheTemplates', 'A grunt mustache plugin to render mustache files with optional data sources.', function () {
+  grunt.registerMultiTask('grunt-mustache-generate', 'A grunt mustache plugin to render mustache files with optional data sources.', function () {
     /**
      * Usage in Grunt file:
      *
