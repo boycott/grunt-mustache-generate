@@ -1,4 +1,5 @@
 'use strict';
+var grunt = require('grunt');
 /**
  * Gets JSON data.
  *
@@ -13,16 +14,7 @@ module.exports = function (file) {
     if (grunt.file.exists(file)) {
       try {
         data = grunt.file.readJSON(file);
-        if (GLOBAL.options.logLevel > 1) {
-          grunt.log[logType || 'ok']('Data loaded from', file);
-        }
-      } catch (e) {
-        if (GLOBAL.options.logLevel > 1) {
-          grunt.log.warn('Data file', file, 'not valid JSON');
-        }
-      }
-    } else if (GLOBAL.options.logLevel > 1) {
-      grunt.log.warn('Data file', file, 'not found');
+      } catch (e) {}
     }
   }
   return data;

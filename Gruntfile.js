@@ -30,6 +30,22 @@ module.exports = function(grunt) {
 
     // Configuration to be run (and then tested).
     mustacheGenerate: {
+      options: {
+        globalData: 'test/fixtures/site.json',
+        partials: {
+          src: ['test/fixtures/partials', 'test/fixtures/app/partials'],
+          dest: 'tmp/partials',
+          varName: 'partials'
+        },
+        output: '.html',
+        logLevel: 2
+      },
+      files: {
+        expand: 'true',
+        cwd: 'test/fixtures/pages',
+        src: '**/*.mustache',
+        dest: 'tmp'
+      }  
     },
 
     // Unit tests.

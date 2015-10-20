@@ -93,7 +93,7 @@ module.exports = function(grunt) {
    * @param options {Object} Partial specific options.
    *
   */
-  function Partials (options) {
+  function Partials () {
     this.options = GLOBAL.options.partials;
     this.init();
   }
@@ -195,4 +195,5 @@ module.exports = function(grunt) {
     this.files.forEach(function (fileGroups) {
       GLOBAL.pages.push(new Page(fileGroups));
     });
+  });
 };
