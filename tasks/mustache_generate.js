@@ -131,6 +131,7 @@ module.exports = function(grunt) {
      * @return {Object} as this.$data[fileName with no extension]
     */
     openFile: function (absPath, rootDir, subDir, fileName) {
+      if (/.DS_Store/.test(fileName)) return;
       this.$data[fileName.replace(path.extname(fileName), '')] = grunt.file.read(absPath);
     },
     /**
