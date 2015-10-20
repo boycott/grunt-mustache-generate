@@ -1,4 +1,4 @@
-# grunt-mustache-generate v1.0.0
+# grunt-mustache-generate v1.0.2
 
 > Grunt task to generate html pages and optionally partials for reuse client side.
 
@@ -75,7 +75,7 @@ Set the logging levels:
 ## Example Grunt settings
 
 ```js
-grunt-mustache-generate: {
+mustacheGenerate: {
   options: {
     globalData: 'site.json',
     partials: {
