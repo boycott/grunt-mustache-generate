@@ -80,7 +80,13 @@ module.exports = function(grunt) {
      *
     */
     create: function () {
-      grunt.file.write(this.$dest, mustache.render(grunt.file.read(this.$page), this.$data, GLOBAL.partials.$data));
+      var html = mustache.render(grunt.file.read(this.$page), this.$data, GLOBAL.partials.$data);
+
+      if (!GLOBAL.options.dontMinify) {
+        html = minify(html, GLOBAL.options.minifySettings);
+      }
+
+      grunt.file.write(this.$dest, html);
 
       if (GLOBAL.options.logLevel > 0) {
         grunt.log.ok('Page rendered to', this.$dest);
@@ -114,12 +120,6 @@ module.exports = function(grunt) {
         this.write();
       }
 
-      if (!this.options.minifySettings) {
-        this.options.minifySettings = {
-          removeComments: true,
-          collapseWhitespace: true
-        };
-      }
     },
     /**
      * Recursively loop through partial containing directory.
@@ -142,10 +142,10 @@ module.exports = function(grunt) {
       var html;
       if (/.DS_Store/.test(fileName)) {
         return;
-      }  
+      }
       html = grunt.file.read(absPath);
       if (!this.options.dontMinify) {
-        html = minify(html, this.options.minifySettings);
+        html = minify(html, GLOBAL.options.minifySettings);
       }
       this.$data[fileName.replace(path.extname(fileName), '')] = html;
     },
@@ -179,9 +179,10 @@ module.exports = function(grunt) {
      *       dest: @optional {String} destination for built JSON file containing all partials (no file extension).
      *       varName: @optional {String} variable name for the partials, outputs the file as a .js file instead of .json'.
      *       dontMinify: @optional {Boolean} @default false.  Don't render partials minified. (uses https://github.com/kangax/html-minifier),
-     *       minifySettings: @optional {Object} overwrite the inbuilt settings for html minification.
      *     },
      *     dataDir: @optional {String}. Page data is by default looked for in the same directory as the mustache pages. If desired the json can be contained in a separate directory.
+     *     dontMinify: @optional {Boolean} @default false.  Don't render pages minified. (uses https://github.com/kangax/html-minifier),
+     *     minifySettings: @optional {Object} overwrite the inbuilt settings for html minification.
      *     output: @optional {String} @default '.html'. Rendered page file extension.
      *     logLevel: @optional {Integer} @default 1.  Logging levels:
      *       0 = no logging.
@@ -199,7 +200,12 @@ module.exports = function(grunt) {
     */
     GLOBAL.options = this.options({
       output: '.html',
-      logLevel: 1
+      logLevel: 1,
+      dontMinify: false,
+      minifySettings: {
+        removeComments: true,
+        collapseWhitespace: true
+      }
     });
 
     if (GLOBAL.options.partials) {

@@ -57,22 +57,27 @@ Type: `Boolean`
 
 Don't use [html-minifier](https://github.com/kangax/html-minifier) to compress partials.  
 
-#### options.partials.minifySettings
+#### options.dataDir
+Type: `String`
+
+Page data is by default looked for in the same directory as the mustache pages. If desired the json can be contained in a separate directory.
+
+#### options.dontMinify
+Type: `Boolean`
+
+Don't use [html-minifier](https://github.com/kangax/html-minifier) to compress pages.  
+
+#### options.minifySettings
 Type: `Object`
 
 Overwrite our default settings for html-minifier:
 
-```javascript
+```js
 {
   removeComments: true,
   collapseWhitespace: true  
 }
 ```  
-
-#### options.dataDir
-Type: `String`
-
-Page data is by default looked for in the same directory as the mustache pages. If desired the json can be contained in a separate directory.
 
 #### options.output
 Type: `String`
