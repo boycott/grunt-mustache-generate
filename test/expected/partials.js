@@ -1,1 +1,1 @@
-partials={"title":"<title>{{title}}</title>\n","doctype":"<!DOCTYPE html>\n"};
+partials={"title":"<title>{{title}}</title>","doctype":"<!DOCTYPE html>"};

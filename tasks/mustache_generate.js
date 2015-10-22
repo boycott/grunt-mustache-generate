@@ -10,6 +10,7 @@
 
 var path   = require('path'),
   mustache = require('mustache'),
+  minify   = require('html-minifier').minify,
   merge    = require('../src/merge'),
   getJSON  = require('../src/getJSON');
 
@@ -112,6 +113,13 @@ module.exports = function(grunt) {
       if (this.options.dest) {
         this.write();
       }
+
+      if (!this.options.minifySettings) {
+        this.options.minifySettings = {
+          removeComments: true,
+          collapseWhitespace: true
+        };
+      }
     },
     /**
      * Recursively loop through partial containing directory.
@@ -131,8 +139,15 @@ module.exports = function(grunt) {
      * @return {Object} as this.$data[fileName with no extension]
     */
     openFile: function (absPath, rootDir, subDir, fileName) {
-      if (/.DS_Store/.test(fileName)) return;
-      this.$data[fileName.replace(path.extname(fileName), '')] = grunt.file.read(absPath);
+      var html;
+      if (/.DS_Store/.test(fileName)) {
+        return;
+      }  
+      html = grunt.file.read(absPath);
+      if (!this.options.dontMinify) {
+        html = minify(html, this.options.minifySettings);
+      }
+      this.$data[fileName.replace(path.extname(fileName), '')] = html;
     },
     /**
      * Write this.$data to file.
@@ -163,6 +178,8 @@ module.exports = function(grunt) {
      *       src: {array of type String} base directories containing mustache partials (task recursively searches within these directories).
      *       dest: @optional {String} destination for built JSON file containing all partials (no file extension).
      *       varName: @optional {String} variable name for the partials, outputs the file as a .js file instead of .json'.
+     *       dontMinify: @optional {Boolean} @default false.  Don't render partials minified. (uses https://github.com/kangax/html-minifier),
+     *       minifySettings: @optional {Object} overwrite the inbuilt settings for html minification.
      *     },
      *     dataDir: @optional {String}. Page data is by default looked for in the same directory as the mustache pages. If desired the json can be contained in a separate directory.
      *     output: @optional {String} @default '.html'. Rendered page file extension.

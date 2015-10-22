@@ -1,4 +1,4 @@
-# grunt-mustache-generate v1.0.2
+# grunt-mustache-generate v1.0.5
 
 > Grunt task to generate html pages and optionally partials for reuse client side.
 
@@ -51,6 +51,23 @@ Type: `String`
 
 By setting a variable name, the partial output will be saved as a .js file with the varName equal to the template object.
 (If you don't set this, the partial output will be a .json file)
+
+#### options.partials.dontMinify
+Type: `Boolean`
+
+Don't use [html-minifier](https://github.com/kangax/html-minifier) to compress partials.  
+
+#### options.partials.minifySettings
+Type: `Object`
+
+Overwrite our default settings for html-minifier:
+
+```javascript
+{
+  removeComments: true,
+  collapseWhitespace: true  
+}
+```  
 
 #### options.dataDir
 Type: `String`
