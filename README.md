@@ -1,4 +1,4 @@
-# grunt-mustache-generate v1.0.6
+# grunt-mustache-generate v1.0.7 [![Build Status](https://travis-ci.org/boycott/grunt-mustache-generate.svg?branch=master)](https://travis-ci.org/boycott/grunt-mustache-generate)
 
 > Grunt task to generate html pages and optionally partials for reuse client side.
 
