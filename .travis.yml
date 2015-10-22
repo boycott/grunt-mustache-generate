@@ -1,10 +1,18 @@
 language: node_js
 node_js:
-  - "0.10"
-  - "0.11"
-  - "0.12"
-  - "iojs"
-  - "4.0"
-  - "4.1"
+- '0.10'
+- '0.11'
+- '0.12'
+- iojs
+- '4.0'
+- '4.1'
 before_install: npm install -g grunt-cli
 install: npm install
+deploy:
+  provider: npm
+  email: geoff@seagull-labs.com
+  api_key:
+    secure: 1g509JzxwMzshjubNo4i2cQN8T9zsBT7kuOfuTNzpVgvlPc1+sLe7eth1HkcHupSCeIGELKyWTkvxHmnWqEcYckf3KHh9sB5SDiFlNu59vUNuWyNhRZ8EhF26XJJUKuEFtmPvSUWQHDG6V2v2C2+6F5cO6oE1rr59GM2yKY9Mus0q0Y9JfzWphzT8R6sSGaOYcoEf8M/e9IANJwSPgRt9xJ4YyLsEOcyxLndQhKoinSpmoW86J+FkHMKbbl97bC8cdNFX7dl6PgdJREvwQ1UbLq4RHAj4RwLKsvxZ+If+e9gVNdUX+j7THyYmXYOYVWFifnw5ku4DL4fD3N9F4xkPTg6MF9r87XIt8u2OAKW6l33sm3yPCCYamWyyfkITL/Bb1zLri/VmtU1YHPEg2ZJot+jiwkoAZFDvS4tKXXZS/BIEaerr2Jqlavj1TlTPZvnEHo664wN3dTAOci+/k01Hk+tn9SQH0Xgn95hsJYdQYoMLRoN0LqdlflPrjUXJB79ogN8sk7Lr4NoySdKIOdcXZYy8Y86PX0//ECk/bdhMt1g2USIdH1pmDHfA/dNVMcYayK4nyQAy+F11kzyluDxxEIhOE9N7tWMtYYuStbwxPSovsXBMQhF6fhyBfy0CsvAUe01oPngOMd3ATjpd3z7j6C5nOvJOfoHzFIvpaThDkY=
+  on:
+    tags: true
+    repo: boycott/grunt-mustache-generate
