@@ -5,8 +5,11 @@
   </head>
   <body>
     <h1>{{title}}</h1>
+    {{#fields}}
+      {{>field}}
+    {{/fields}}
     {{#links}}
-      {{>anchor}}  
+      {{>anchor}}
     {{/links}}
   </body>
 </html>

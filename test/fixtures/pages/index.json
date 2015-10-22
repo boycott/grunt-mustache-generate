@@ -4,7 +4,21 @@
     {
       "href": "",
       "isButton": true,
-      "anchorText": "test"  
+      "anchorText": "test"
+    }
+  ],
+  "fields": [
+    {
+      "header": {
+        "h1Text": "   Test       "
+      },
+      "labelText": "  Test     ",
+      "optional": true,
+      "messages": {
+        "alertInfo": true,
+        "alertHeader": "   Test      ",
+        "alertMessage": "  Test     "
+      }
     }
   ]
 }

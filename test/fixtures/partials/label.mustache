@@ -1,0 +1,9 @@
+<label
+{{#fieldId}} for="{{fieldId}}"{{/fieldId}}
+{{^fieldId}}{{#inputId}} for="{{inputId}}"{{/inputId}}{{/fieldId}}
+{{#labelHidden}} aria-hidden="true"{{/labelHidden}}>
+    {{#labelText}}
+        {{labelText}}
+    {{/labelText}}
+    {{#optional}}<em class="tag optional">optional</em>{{/optional}}
+</label>

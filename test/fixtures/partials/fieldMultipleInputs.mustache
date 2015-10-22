@@ -1,0 +1,17 @@
+<div{{#hidden}} aria-hidden="true"{{/hidden}} class="field{{#inputMultiList}} multi-list{{/inputMultiList}}
+{{#inputMultiListInline}} multi-list-inline{{/inputMultiListInline}}
+{{#alertError}} field-error{{/alertError}}
+">
+    <fieldset>
+        <legend class="default-font-size">{{inputMultiHeader}}</legend>
+        {{#described}}
+            {{>describedBy}}
+        {{/described}}
+        {{#inputsMulti}}
+            {{> label}}
+        {{/inputsMulti}}
+        {{#messages}}
+            {{> messages}}
+        {{/messages}}
+    </fieldset>
+</div>
