@@ -1,1 +1,1 @@
-partials={"title":"<title>{{title}}</title>","doctype":"<!DOCTYPE html>"};
+partials={"anchor":"<a{{#href}} href=\"{{{href}}}\"{{/href}}{{#isButton}} class=\"anchor-button\"{{/isButton}}>{{anchorText}}</a>","title":"<title>{{title}}</title>","doctype":"<!DOCTYPE html>"};

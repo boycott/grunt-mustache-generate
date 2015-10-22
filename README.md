@@ -1,4 +1,4 @@
-# grunt-mustache-generate v1.1.0 [![Build Status](https://travis-ci.org/boycott/grunt-mustache-generate.svg?branch=master)](https://travis-ci.org/boycott/grunt-mustache-generate)
+# grunt-mustache-generate v1.1.1 [![Build Status](https://travis-ci.org/boycott/grunt-mustache-generate.svg?branch=master)](https://travis-ci.org/boycott/grunt-mustache-generate)
 
 > Grunt task to generate html pages and optionally partials for reuse client side.
 
@@ -31,6 +31,11 @@ Type: `String`
 
 This defines the location of a JSON file containing settings shared across all mustache pages.
 
+#### options.dontMinify
+Type: `Boolean`
+
+Don't compress pages.  
+
 #### options.partials
 Type: `Object`
 
@@ -55,29 +60,12 @@ By setting a variable name, the partial output will be saved as a .js file with 
 #### options.partials.dontMinify
 Type: `Boolean`
 
-Don't use [html-minifier](https://github.com/kangax/html-minifier) to compress partials.  
+Don't compress partials.  
 
 #### options.dataDir
 Type: `String`
 
 Page data is by default looked for in the same directory as the mustache pages. If desired the json can be contained in a separate directory.
-
-#### options.dontMinify
-Type: `Boolean`
-
-Don't use [html-minifier](https://github.com/kangax/html-minifier) to compress pages.  
-
-#### options.minifySettings
-Type: `Object`
-
-Overwrite our default settings for html-minifier:
-
-```js
-{
-  removeComments: true,
-  collapseWhitespace: true  
-}
-```  
 
 #### options.output
 Type: `String`
