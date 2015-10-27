@@ -56,20 +56,29 @@ module.exports = function(grunt) {
     /**
      * Get page data from merging global data with page data.
      *
-     * dataFile must be called the same as the page, but with the extension ".json".
+     * dataFile must be called the same as the page, but with the extension json : "<page>.json".
+     * If the env option is set, first look for the environment specific file : "<page>.<env>.json"
      * if a seperate data directory is specified, this is prepended to the location.
      *
      * @return this.$data {Object} Merged data object.
      *
     */
     getData: function () {
-      var dataFile = this.$page.replace(path.extname(this.$page), '.json');
+      var dataFile = this.$page.replace(path.extname(this.$page), '.json'),
+        data;
 
       if (GLOBAL.options.dataDir) {
         dataFile = path.normalize(GLOBAL.options.dataDir + '/' + dataFile);
       }
 
-      this.$data = merge(this.$data, getJSON(dataFile), true);
+      if (GLOBAL.options.env) {
+        data = getJSON(dataFile.replace('.json', '.' + GLOBAL.options.env + '.json'));
+      }
+      if (!data) {
+        data = getJSON(dataFile);
+      }
+
+      this.$data = merge(this.$data, data, true);
     },
     /**
      * Writes compiled pages to destination directory.

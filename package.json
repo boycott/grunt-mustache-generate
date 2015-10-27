@@ -1,7 +1,7 @@
 {
   "name": "grunt-mustache-generate",
   "description": "Grunt task to generate html pages and optionally partials for reuse client side.",
-  "version": "1.1.3",
+  "version": "1.1.4",
   "homepage": "https://github.com/boycott/grunt-mustache-generate",
   "author": {
     "name": "boycott",

@@ -37,6 +37,7 @@ module.exports = function(grunt) {
           dest: 'tmp/partials',
           varName: 'partials'
         },
+        env: grunt.option('env') || process.env.GRUNT_ENV,  
         output: '.html',
         logLevel: 2
       },
@@ -45,7 +46,7 @@ module.exports = function(grunt) {
         cwd: 'test/fixtures/pages',
         src: '**/*.mustache',
         dest: 'tmp'
-      }  
+      }
     },
 
     // Unit tests.

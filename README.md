@@ -1,4 +1,4 @@
-# grunt-mustache-generate v1.1.3 [![Build Status](https://travis-ci.org/boycott/grunt-mustache-generate.svg?branch=master)](https://travis-ci.org/boycott/grunt-mustache-generate)
+# grunt-mustache-generate v1.1.4 [![Build Status](https://travis-ci.org/boycott/grunt-mustache-generate.svg?branch=master)](https://travis-ci.org/boycott/grunt-mustache-generate)
 
 > Grunt task to generate html pages and optionally partials for reuse client side.
 
@@ -67,6 +67,11 @@ Type: `String`
 
 Page data is by default looked for in the same directory as the mustache pages. If desired the json can be contained in a separate directory.
 
+#### options.env
+Type: `String`
+
+If used, the json will be first searched for using the format `<page>.<env>.json` If no file exists or no environment is set, fall back to `<page>.json`
+
 #### options.output
 Type: `String`
 Default: `.html`
@@ -94,6 +99,7 @@ mustacheGenerate: {
       varName: 'myNS.partials'
     },
     dataDir: 'data',
+    env: grunt.option('env') || process.env.GRUNT_ENV,  
     output: '.html',
     logLevel: 2
   },
