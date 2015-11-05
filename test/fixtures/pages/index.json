@@ -1,5 +1,6 @@
 {
   "title": "Hello World",
+  "description": "Test for <span>whitespace</span> crushing.",  
   "links": [
     {
       "href": "",
