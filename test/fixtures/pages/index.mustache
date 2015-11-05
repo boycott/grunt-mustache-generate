@@ -4,8 +4,10 @@
     {{>title}}
   </head>
   <body>
-    <h1>{{title}}</h1>
-    <p>{{{ description }}}</p> 
+    {{#header}}
+      {{>headers}}  
+    {{/header}}
+    <p>{{{ description }}}</p>
     {{#fields}}
       {{>field}}
     {{/fields}}

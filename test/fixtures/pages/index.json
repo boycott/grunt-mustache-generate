@@ -1,6 +1,9 @@
 {
-  "title": "Hello World",
-  "description": "Test for <span>whitespace</span> crushing.",  
+  "title": "Test Page",
+  "header": {
+    "h1Text": "Hello World!"
+  },
+  "description": "Test for <span>whitespace</span> crushing.",
   "links": [
     {
       "href": "",
@@ -8,17 +11,35 @@
       "anchorText": "test"
     }
   ],
+  "messages": {
+    "alertInfo": true,
+    "alertHeader": "   Global Message      ",
+    "alertMessage": "  Global field message     "
+  },
   "fields": [
     {
       "header": {
-        "h1Text": "   Test       "
+        "h1Text": "   Field 1       "
       },
-      "labelText": "  Test     ",
-      "optional": true,
+      "labelText": "  I'm a first field     ",
+      "optional": true
+    },
+    {
+      "header": {
+        "h1Text": "   Field 2       "
+      },
+      "labelText": "  I'm a second field    ",
+      "messages": false
+    },
+    {
+      "header": {
+        "h1Text": "   Field 3       "
+      },
+      "labelText": "  I'm a third field    ",
       "messages": {
         "alertInfo": true,
-        "alertHeader": "   Test      ",
-        "alertMessage": "  Test     "
+        "alertHeader": "Field Message      ",
+        "alertMessage": "  Field level message     "
       }
     }
   ]

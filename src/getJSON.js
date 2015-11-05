@@ -1,5 +1,4 @@
 'use strict';
-var grunt = require('grunt');
 /**
  * Gets JSON data.
  *
@@ -9,13 +8,8 @@ var grunt = require('grunt');
 */
 module.exports = function (file) {
   var data = {};
-
-  if (file) {
-    if (grunt.file.exists(file)) {
-      try {
-        data = grunt.file.readJSON(file);
-      } catch (e) {}
-    }
-  }
+  try {
+    data = require('../' + file);
+  } catch (e) {}
   return data;
 }
