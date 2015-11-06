@@ -9,7 +9,9 @@
 module.exports = function (file) {
   var data = {};
   try {
-    data = require('../' + file);
-  } catch (e) {}
+    data = require(process.cwd() + '/' + file);
+  } catch (e) {
+    console.error(e.message);
+  }
   return data;
 }
