@@ -1,46 +1,55 @@
 {
-  "title": "Test Page",
-  "header": {
-    "h1Text": "Hello World!"
-  },
-  "description": "Test for <span> whitespace </span> crushing .",
-  "links": [
-    {
-      "href": "",
-      "isButton": true,
-      "anchorText": "test"
-    }
-  ],
-  "messages": {
-    "alertInfo": true,
-    "alertHeader": "Global Message",
-    "alertMessage": "Global field message"
-  },
-  "fields": [
-    {
-      "header": {
-        "h1Text": "Field 1"
-      },
-      "labelText": "I'm a first field",
-      "optional": true
+    "copy": {
+        "page": "index-copy"
     },
-    {
-      "header": {
-        "h1Text": "Field 2"
-      },
-      "labelText": "I'm a second field",
-      "messages": false
+    "meta": [
+        {
+            "name": "tracking",
+            "content": "`tracking.code`"
+        }
+    ],
+    "header": {
+        "h1Text": "`page.headerH1Text`"
     },
-    {
-      "header": {
-        "h1Text": "Field 3"
-      },
-      "labelText": "I'm a third field",
-      "messages": {
+    "title": "`page.title`",
+    "links": [
+        {
+            "anchorText": "`page.firstLinkAnchorText`",
+            "href": "#",
+            "isButton": true
+        }
+    ],
+    "messages": {
         "alertInfo": true,
-        "alertHeader": "Field Message",
-        "alertMessage": "Field level message"
-      }
-    }
-  ]
+        "alertHeader": "`messages.alerts.global.header`",
+        "alertMessage": "`messages.alerts.global.message`"
+    },
+    "fields": [
+        {
+            "header": {
+                "h1Text": "`page.field1.h1Text`"
+            },
+            "labelText": "`page.field1.labelText`",
+            "optional": true
+        },
+        {
+            "header": {
+                "h1Text": "`page.field2.h1Text`"
+            },
+            "labelText": "`page.field2.labelText`",
+            "messages": false
+        },
+        {
+            "header": {
+                "h1Text": "`page.field3.h1Text`"
+            },
+            "labelText": "`page.field3.labelText`",
+            "messages": {
+                "alertInfo": true,
+                "alertHeader": "`messages.alerts.field.header`",
+                "alertMessage": "`messages.alerts.field.message`"
+            }
+        }
+    ],
+    "tracking": "`tracking.url`"
 }

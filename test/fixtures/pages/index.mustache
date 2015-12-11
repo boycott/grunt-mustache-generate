@@ -1,18 +1,22 @@
 {{>doctype}}
 <html lang="{{lang}}">
-  <head>
-    {{>title}}
-  </head>
-  <body>
-    {{#header}}
-      {{>headers}}  
-    {{/header}}
-    <p>{{{ description }}}</p>
-    {{#fields}}
-      {{>field}}
-    {{/fields}}
-    {{#links}}
-      {{>anchor}}
-    {{/links}}
-  </body>
+    <head>
+        {{#meta}}
+            {{>meta}}
+        {{/meta}}
+        {{>title}}
+    </head>
+    <body>
+        {{#header}}
+            {{>headers}}  
+        {{/header}}
+        <p>{{{ description }}}</p>
+        {{#fields}}
+            {{>field}}
+        {{/fields}}
+        {{#links}}
+            {{>anchor}}
+        {{/links}}
+        {{>tracking}}
+    </body>
 </html>

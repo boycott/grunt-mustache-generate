@@ -1,3 +1,7 @@
 {
-  "lang": "en"  
+  "lang": "en",
+  "copy": {
+      "messages": "messages.js",
+      "tracking": "tracking.js"
+  }
 }

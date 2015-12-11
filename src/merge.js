@@ -8,7 +8,7 @@
  *
  * @return dst {Object} Merged Object.
 */
-function merge (target, src, alwaysPush) {
+module.exports = function merge (target, src, alwaysPush) {
   var array = Array.isArray(src),
     dst = array && [] || {};
 
@@ -47,6 +47,4 @@ function merge (target, src, alwaysPush) {
     });
   }
   return dst;
-}
-
-module.exports = merge;
+};

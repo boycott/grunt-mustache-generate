@@ -1,4 +1,4 @@
-# grunt-mustache-generate v1.2.0 [![Build Status](https://travis-ci.org/boycott/grunt-mustache-generate.svg?branch=master)](https://travis-ci.org/boycott/grunt-mustache-generate)
+# grunt-mustache-generate v1.3.0 [![Build Status](https://travis-ci.org/boycott/grunt-mustache-generate.svg?branch=master)](https://travis-ci.org/boycott/grunt-mustache-generate)
 
 > Grunt task to generate html pages and optionally partials for reuse client side.
 
@@ -109,5 +109,116 @@ mustacheGenerate: {
     src: '**/*.mustache',
     dest: 'target'
   }
+}
+```
+
+
+## Data Options
+Each data file can pull in external data for itself and for child data files.
+
+Specify the location of the data in a special base level object called "copy".  This object contains a reference to each chunk of data, which itself needs to be valid JSON data, either raw in a json file (you don't need to add a file extension), as the value of a javascript variable, or a jsonp response object.
+
+### JSON Data
+*messages.json*
+```json
+{
+    "alerts": {
+        "global": {
+            "header": "Global Message",
+            "message": "Global field message"
+        },
+        "field": {
+            "header": "Field Message",
+            "message": "Field level message"
+        }
+    }
+}
+```
+*site.json*
+```json
+{
+    "copy": {
+        "messages": "messages"
+    }
+}
+```
+*pages/index.json*
+```json
+{
+    "messages": {
+        "alertInfo": true,
+        "alertHeader": "`messages.alerts.global.header`",
+        "alertMessage": "`messages.alerts.global.message`"
+    }
+}
+```
+
+### JS Variable
+*messages.js*
+```js
+NS.messages = {
+    "alerts": {
+        "global": {
+            "header": "Global Message",
+            "message": "Global field message"
+        },
+        "field": {
+            "header": "Field Message",
+            "message": "Field level message"
+        }
+    }
+};
+```
+*site.json*
+```json
+{
+    "copy": {
+        "messages": "messages.js"
+    }
+}
+```
+*pages/index.json*
+```json
+{
+    "messages": {
+        "alertInfo": true,
+        "alertHeader": "`messages.alerts.global.header`",
+        "alertMessage": "`messages.alerts.global.message`"
+    }
+}
+```
+
+### JSONP Response
+*messages.js*
+```js
+NS.messages({
+    "alerts": {
+        "global": {
+            "header": "Global Message",
+            "message": "Global field message"
+        },
+        "field": {
+            "header": "Field Message",
+            "message": "Field level message"
+        }
+    }
+});
+```
+*site.json*
+```json
+{
+    "copy": {
+        "messages": "messages.js"
+    }
+}
+```
+*pages/index.json*
+```json
+{
+    "messages": {
+        "alertInfo": true,
+        "alertHeader": "`messages.alerts.global.header`",
+        "alertMessage": "`messages.alerts.global.message`"
+    }
 }
 ```

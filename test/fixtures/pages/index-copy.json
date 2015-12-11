@@ -1,0 +1,18 @@
+{
+    "title": "Test Page",
+    "headerH1Text": "Hello World!",
+    "description": "Test for <span> whitespace </span> crushing.",
+    "firstLinkAnchorText": "test",
+    "field1": {
+        "h1Text": "Field 1",
+        "labelText": "I'm the first field"
+    },
+    "field2": {
+        "h1Text": "Field 2",
+        "labelText": "I'm the second field"
+    },
+    "field3": {
+        "h1Text": "Field 3",
+        "labelText": "I'm the third field"
+    }
+}
