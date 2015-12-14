@@ -148,7 +148,7 @@ module.exports = function(grunt) {
         openFile: function (absPath, rootDir, subDir, fileName) {
             var html;
 
-            if (!/\.(mustache)$/.test(fileName)) {
+            if (!/\.(html?|mu?st(ache)?)$/g.test(fileName)) {
                 return;
             }
             console.log(fileName);
